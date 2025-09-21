@@ -1,94 +1,192 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AJ’s Dual-PC Showcase</title>
-  <meta name="description" content="Explore AJ’s (aka B4nsheeG4mer) dual-PC setup built for streaming and gaming. Showcasing a powerful Gaming PC and a dedicated Streaming PC with photos, specs, and chill vibes." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root { color-scheme: dark; }
-    .card { border-radius: 1.5rem; border: 1px solid rgba(100,116,139,.6); background: rgba(2,6,23,.6); backdrop-filter: blur(6px); }
-    .gallery img { cursor: pointer; transition: transform 0.2s; border-radius: 12px; }
-    .gallery img:hover { transform: scale(1.05); }
-    .lightbox {
-      display: none; position: fixed; z-index: 50; left: 0; top: 0;
-      width: 100%; height: 100%; background: rgba(0,0,0,0.9);
-      align-items: center; justify-content: center;
-    }
-    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AJ’s Dual-PC Setup • B4nsheeG4mer</title>
+<meta name="description" content="AJ (aka B4nsheeG4mer) — Dual-PC showcase with a high-end Gaming PC and a dedicated Streaming PC. Galleries, specs, and chill vibes." />
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;background:#0b1220;color:#e6eefc;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:16px}
+  header{position:sticky;top:0;z-index:20;background:#0b1220cc;border-bottom:1px solid #17233d;backdrop-filter:blur(6px)}
+  .brand{display:flex;gap:10px;align-items:baseline}
+  .brand h1{font-size:18px;margin:0}
+  .sub{opacity:.7;font-size:12px}
+  .row{display:grid;gap:20px}
+  @media(min-width:1000px){.row-2{grid-template-columns:1.1fr .9fr}}
+  .card{background:#0f1a33;border:1px solid #243356;border-radius:18px;padding:22px}
+  .card.soft{background:#0f1a33aa;backdrop-filter:blur(6px)}
+  .pill{display:inline-block;font-size:12px;color:#c9d7ff;background:#101a34;border:1px solid #2b3b63;border-radius:999px;padding:4px 10px}
+  .h1{font-size:34px;line-height:1.1;margin:10px 0 6px}
+  .h1 b{color:#8b8dff}
+  .muted{color:#c9d7ff;opacity:.9}
+  .btn{display:inline-block;padding:8px 14px;border:1px solid #2b3b63;border-radius:12px;text-decoration:none}
+  .tabs{display:flex;gap:10px;position:sticky;top:68px;z-index:15}
+  .tab{flex:1;text-align:center;padding:10px 14px;border:1px solid #2b3b63;border-radius:12px;cursor:pointer}
+  .tab.active{background:#5a4ff0;border-color:#5a4ff0}
+  .rail{height:6px;border-radius:999px;background:linear-gradient(90deg,#8b5cf6,#06b6d4);box-shadow:0 0 0 1px #22335b;margin:12px 0 0}
+  .gallery{position:relative}
+  .stage{position:relative;border:1px solid #243356;border-radius:16px;overflow:hidden}
+  .stage img{display:block;width:100%;height:420px;object-fit:cover}
+  .thumbs{display:flex;gap:8px;margin-top:10px;overflow:auto;padding-bottom:2px}
+  .thumbs img{width:120px;height:72px;object-fit:cover;border:1px solid #243356;border-radius:10px;opacity:.8;cursor:pointer}
+  .thumbs img.active{outline:2px solid #7c78ff;opacity:1}
+  .navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#0b1220cc;border:1px solid #ffffff55;color:#fff;border-radius:12px;font-size:18px;padding:8px 10px;cursor:pointer}
+  .navbtn.left{left:10px}.navbtn.right{right:10px}
+  .specs{border:1px solid #243356;border-radius:16px;padding:0;overflow:hidden}
+  .specs h4{margin:0;padding:16px 16px;border-bottom:1px solid #243356;background:#0d1730}
+  .spec{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:10px 16px;border-top:1px solid #1a2848}
+  .spec:first-of-type{border-top:none}
+  .key{opacity:.8;color:#bcd0ff}.val{color:#e7edff}
+  .lightbox{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:40}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:92vh;border-radius:16px}
+  .close{position:absolute;top:18px;right:18px;border:1px solid #ffffff55;border-radius:999px;width:40px;height:40px;display:grid;place-items:center;font-size:22px;background:transparent;color:#fff;cursor:pointer}
+  .grid2{display:grid;gap:20px}
+  @media(min-width:1000px){.grid2{grid-template-columns:1.2fr 1fr}}
+</style>
 </head>
-<body class="min-h-screen bg-slate-950 text-slate-100">
-  <header class="sticky top-0 z-10 border-b border-slate-800/70 backdrop-blur bg-slate-950/70">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-xl font-semibold">AJ’s Dual-PC Setup</h1>
-      <p class="text-xs text-slate-400">aka <span class="font-medium">B4nsheeG4mer</span></p>
+<body>
+<header>
+  <div class="wrap brand">
+    <h1>AJ’s Dual-PC Setup</h1>
+    <div class="sub">aka <b>B4nsheeG4mer</b> • Fortnite • Chill vibes</div>
+    <div style="margin-left:auto;display:flex;gap:8px;">
+      <a class="btn" href="https://twitch.tv/B4nsheeG4mer" target="_blank" rel="noopener">Twitch</a>
+      <a class="btn" href="https://youtube.com/@B4nsheeG4mer" target="_blank" rel="noopener">YouTube</a>
     </div>
-  </header>
-
-  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
-    <!-- Welcome -->
-    <section class="card p-6 md:p-10">
-      <h2 class="text-2xl font-bold mb-4">Welcome!</h2>
-      <p class="text-slate-300 leading-relaxed">
-        Hey! I’m <strong>AJ</strong> (aka <strong>B4nsheeG4mer</strong>), a 24-year-old trans content creator who loves gaming, streaming, and tech. 
-        This is my dual-PC setup built for both <strong>performance</strong> and <strong>style</strong>. Explore the builds below!
-      </p>
-    </section>
-
-    <!-- Gaming PC -->
-    <section class="card p-6 md:p-10">
-      <h2 class="text-xl font-bold mb-4">🎮 Gaming PC</h2>
-      <ul class="list-disc list-inside mb-4 text-slate-300">
-        <li>CPU: Intel Core i9-12900K</li>
-        <li>GPU: MSI RTX 4070 SUPER</li>
-        <li>RAM: 64GB G.Skill DDR5-6000</li>
-        <li>Storage: Samsung 980 Pro 2TB + others</li>
-        <li>Case: NZXT H9 Elite</li>
-      </ul>
-      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <img src="gaming1.jpg" alt="Gaming PC 1" />
-        <img src="gaming2.jpg" alt="Gaming PC 2" />
-        <img src="gaming3.jpg" alt="Gaming PC 3" />
-      </div>
-    </section>
-
-    <!-- Streaming PC -->
-    <section class="card p-6 md:p-10">
-      <h2 class="text-xl font-bold mb-4">📹 Streaming PC</h2>
-      <ul class="list-disc list-inside mb-4 text-slate-300">
-        <li>CPU: AMD Ryzen 5 5500</li>
-        <li>GPU: NVIDIA RTX 4060</li>
-        <li>Motherboard: MAG B550 TOMAHAWK MAX WIFI</li>
-        <li>RAM: 16GB DDR4-3000</li>
-        <li>Storage: T-Force 1TB</li>
-      </ul>
-      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <img src="stream1.jpg" alt="Streaming PC 1" />
-        <img src="stream2.jpg" alt="Streaming PC 2" />
-        <img src="stream3.jpg" alt="Streaming PC 3" />
-      </div>
-    </section>
-  </main>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox flex">
-    <img id="lightbox-img" src="" alt="Expanded view" />
   </div>
+</header>
 
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
-    });
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
-  </script>
+<main class="wrap" style="padding-block:24px;">
+  <section class="card soft row row-2">
+    <div>
+      <span class="pill">Chill • Inclusive • High FPS</span>
+      <h2 class="h1"><b>Showcase:</b> Gaming + <br/>Streaming</h2>
+      <p class="muted">Tabs for each build, a gallery, and a clean spec table.</p>
+    </div>
+    <div class="stage">
+      <img src="38C707E2-270C-4DE0-BD29-20C95C33FAA1.jpeg" alt="Gaming PC hero">
+    </div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="gaming">Gaming PC</button>
+    <button class="tab" data-tab="streaming">Streaming PC</button>
+  </div>
+  <div class="rail"></div>
+
+  <section id="panel-gaming" class="card">
+    <div class="grid2">
+      <div class="card soft">
+        <h3 style="margin:0 0 8px;">Gaming PC (H9 Elite • 12900K • 4070 SUPER)</h3>
+        <div class="muted" style="margin-bottom:12px;">High FPS + low latency (Fortnite Zero Build)</div>
+        <div class="gallery" data-gallery="gaming">
+          <div class="stage">
+            <button class="navbtn left" aria-label="Previous">◀</button>
+            <img alt="Gaming main">
+            <button class="navbtn right" aria-label="Next">▶</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+      </div>
+      <div class="specs">
+        <h4>Specs</h4>
+        <div class="spec"><div class="key">CPU</div><div class="val">Intel Core i9-12900K (16-core, 3.2 GHz base)</div></div>
+        <div class="spec"><div class="key">CPU Cooler</div><div class="val">NZXT Kraken Elite 360 RGB (AIO)</div></div>
+        <div class="spec"><div class="key">Motherboard</div><div class="val">MSI MPG Z790 EDGE WIFI (ATX, LGA1700)</div></div>
+        <div class="spec"><div class="key">RAM</div><div class="val">64GB DDR5-6000 CL36 (G.Skill Trident Z5 RGB, 4×16GB)</div></div>
+        <div class="spec"><div class="key">Storage</div><div class="val">SN550 1TB NVMe • 980 Pro 2TB NVMe • 870 EVO 1TB SATA • WD Blue 2TB HDD</div></div>
+        <div class="spec"><div class="key">GPU</div><div class="val">MSI GeForce RTX 4070 SUPER 12GB (Ventus 3X OC)</div></div>
+        <div class="spec"><div class="key">Case</div><div class="val">NZXT H9 Elite (ATX Mid Tower)</div></div>
+        <div class="spec"><div class="key">Case Fans</div><div class="val">Lian Li Uni Fan SL-Infinity 120mm (10 total)</div></div>
+        <div class="spec"><div class="key">PSU</div><div class="val">EVGA SuperNOVA 1000 GT (1000W, 80+ Gold)</div></div>
+        <div class="spec"><div class="key">Cables</div><div class="val">Lian Li Strimer Plus V2 24-pin + 8-pin</div></div>
+        <div class="spec"><div class="key">Extras</div><div class="val">NZXT Internal USB Hub 3</div></div>
+        <div class="spec"><div class="key">OS</div><div class="val">Windows 11</div></div>
+        <div class="spec"><div class="key">Notes</div><div class="val">Built for max FPS + aesthetics; strong cooling and clean cable management.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-streaming" class="card" style="display:none;">
+    <div class="grid2">
+      <div class="card soft">
+        <h3 style="margin:0 0 8px;">Streaming PC (Ryzen 5 5500 • RTX 4060)</h3>
+        <div class="muted" style="margin-bottom:12px;">Dedicated for encoding + chat + capture</div>
+        <div class="gallery" data-gallery="streaming">
+          <div class="stage">
+            <button class="navbtn left" aria-label="Previous">◀</button>
+            <img alt="Streaming main">
+            <button class="navbtn right" aria-label="Next">▶</button>
+          </div>
+          <div class="thumbs"></div>
+        </div>
+      </div>
+      <div class="specs">
+        <h4>Specs</h4>
+        <div class="spec"><div class="key">CPU</div><div class="val">AMD Ryzen 5 5500</div></div>
+        <div class="spec"><div class="key">GPU</div><div class="val">NVIDIA GeForce RTX 4060</div></div>
+        <div class="spec"><div class="key">Motherboard</div><div class="val">MAG B550 TOMAHAWK MAX WIFI (MS-7C91)</div></div>
+        <div class="spec"><div class="key">RAM</div><div class="val">A-Data DDR4-3000 • 16 GB</div></div>
+        <div class="spec"><div class="key">Storage</div><div class="val">T-Force 1 TB SSD</div></div>
+        <div class="spec"><div class="key">Case / PSU / Cooler</div><div class="val">N/A</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="lightbox" class="lightbox">
+  <button class="close" aria-label="Close">×</button>
+  <img alt="Expanded view">
+</div>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+const panels={gaming:document.getElementById('panel-gaming'),streaming:document.getElementById('panel-streaming')};
+tabs.forEach(t=>{t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');const id=t.dataset.tab;panels.gaming.style.display=(id==='gaming')?'block':'none';panels.streaming.style.display=(id==='streaming')?'block':'none';});});
+
+const galleries={gaming:["38C707E2-270C-4DE0-BD29-20C95C33FAA1.jpeg","11A6E1B3-3A2E-492D-B845-E289238B076D.jpeg","C51942F4-D263-403C-A68F-25A532841998.jpeg"],
+streaming:["20AD5C8A-EA05-40E2-860E-523E87F2EA00.jpeg","443AEE74-3095-4BE5-805A-889443EB04FA.jpeg","0FB80E29-95FF-4420-A210-122EC2A9F818.jpeg"]};
+
+function initGallery(name){
+  const root=document.querySelector(`.gallery[data-gallery="${name}"]`);
+  const stageImg=root.querySelector('.stage img');
+  const left=root.querySelector('.navbtn.left');
+  const right=root.querySelector('.navbtn.right');
+  const thumbs=root.querySelector('.thumbs');
+  const list=galleries[name];
+  let i=0;
+  function render(){
+    stageImg.src=list[i];
+    [...thumbs.children].forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  }
+  // build thumbs
+  list.forEach((src,idx)=>{
+    const t=document.createElement('img');
+    t.src=src; t.alt=name+' thumb '+(idx+1);
+    t.addEventListener('click',()=>{i=idx;render()});
+    thumbs.appendChild(t);
+  });
+  if(thumbs.firstChild) thumbs.firstChild.classList.add('active');
+  // nav
+  left.addEventListener('click',()=>{i=(i-1+list.length)%list.length;render()});
+  right.addEventListener('click',()=>{i=(i+1)%list.length;render()});
+  // lightbox
+  stageImg.addEventListener('click',()=>openLightbox(stageImg.src));
+  render();
+}
+initGallery('gaming'); initGallery('streaming');
+
+const lb=document.getElementById('lightbox'); const lbImg=lb.querySelector('img'); const lbClose=lb.querySelector('.close');
+function openLightbox(src){lbImg.src=src;lb.classList.add('open');}
+function closeLightbox(){lb.classList.remove('open');lbImg.removeAttribute('src');}
+lbClose.addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))closeLightbox();});
+</script>
 </body>
 </html>
