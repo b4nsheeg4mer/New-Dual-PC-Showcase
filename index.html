@@ -1,1 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AJ’s Dual-PC Showcase</title>
+  <meta name="description" content="Explore AJ’s (aka B4nsheeG4mer) dual-PC setup built for streaming and gaming. Showcasing a powerful Gaming PC and a dedicated Streaming PC with photos, specs, and chill vibes." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    .card { border-radius: 1.5rem; border: 1px solid rgba(100,116,139,.6); background: rgba(2,6,23,.6); backdrop-filter: blur(6px); }
+    .gallery img { cursor: pointer; transition: transform 0.2s; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      display: none; position: fixed; z-index: 50; left: 0; top: 0;
+      width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+      align-items: center; justify-content: center;
+    }
+    .lightbox img { max-width: 90%; max-height: 90%; }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-10 border-b border-slate-800/70 backdrop-blur bg-slate-950/70">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold">AJ’s Dual-PC Setup</h1>
+      <p class="text-xs text-slate-400">aka <span class="font-medium">B4nsheeG4mer</span></p>
+    </div>
+  </header>
 
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+
+    <section class="card p-6 md:p-10">
+      <h2 class="text-2xl font-bold mb-4">Welcome!</h2>
+      <p>Hey! I’m <strong>AJ</strong> (aka <strong>B4nsheeG4mer</strong>), a 24-year-old trans content creator who loves gaming, streaming, and tech. This is my dual-PC setup built for both <strong>performance</strong> and <strong>style</strong>. Explore the builds below!</p>
+    </section>
+
+    <!-- Gaming PC -->
+    <section class="card p-6 md:p-10">
+      <h2 class="text-xl font-bold mb-4">🎮 Gaming PC</h2>
+      <ul class="list-disc list-inside mb-4 text-slate-300">
+        <li>CPU: Intel Core i9-12900K</li>
+        <li>GPU: MSI RTX 4070 SUPER</li>
+        <li>RAM: 64GB G.Skill DDR5-6000</li>
+        <li>Storage: Samsung 980 Pro 2TB + others</li>
+        <li>Case: NZXT H9 Elite</li>
+      </ul>
+      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img src="YOUR-GAMING-PC-IMAGE-1.jpg" alt="Gaming PC 1" />
+        <img src="YOUR-GAMING-PC-IMAGE-2.jpg" alt="Gaming PC 2" />
+      </div>
+    </section>
+
+    <!-- Streaming PC -->
+    <section class="card p-6 md:p-10">
+      <h2 class="text-xl font-bold mb-4">📹 Streaming PC</h2>
+      <ul class="list-disc list-inside mb-4 text-slate-300">
+        <li>CPU: AMD Ryzen 5500</li>
+        <li>GPU: NVIDIA RTX 4060</li>
+        <li>Motherboard: MAG B550 TOMAHAWK MAX WIFI</li>
+        <li>RAM: 16GB DDR4-3000</li>
+        <li>Storage: T-Force 1TB</li>
+      </ul>
+      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img src="YOUR-STREAMING-PC-IMAGE-1.jpg" alt="Streaming PC 1" />
+        <img src="YOUR-STREAMING-PC-IMAGE-2.jpg" alt="Streaming PC 2" />
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox flex">
+    <img id="lightbox-img" src="" alt="Expanded view" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
