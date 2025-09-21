@@ -149,7 +149,7 @@ const tabs=document.querySelectorAll('.tab');
 const panels={gaming:document.getElementById('panel-gaming'),streaming:document.getElementById('panel-streaming')};
 tabs.forEach(t=>{t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');const id=t.dataset.tab;panels.gaming.style.display=(id==='gaming')?'block':'none';panels.streaming.style.display=(id==='streaming')?'block':'none';});});
 
-const galleries={gaming:["assets/38C707E2-270C-4DE0-BD29-20C95C33FAA1.jpeg","assets/11A6E1B3-3A2E-492D-B845-E289238B076D.jpeg","assets/C51942F4-D263-403C-A68F-25A532841998.jpeg"],streaming:["assets/20AD5C8A-EA05-40E2-860E-523E87F2EA00.jpeg","assets/443AEE74-3095-4BE5-805A-889443EB04FA.jpeg","assets/0FB80E29-95FF-4420-A210-122EC2A9F818.jpeg"]};
+const galleries={gaming:["38C707E2-270C-4DE0-BD29-20C95C33FAA1.jpeg","11A6E1B3-3A2E-492D-B845-E289238B076D.jpeg","C51942F4-D263-403C-A68F-25A532841998.jpeg"],streaming:["20AD5C8A-EA05-40E2-860E-523E87F2EA00.jpeg","443AEE74-3095-4BE5-805A-889443EB04FA.jpeg","0FB80E29-95FF-4420-A210-122EC2A9F818.jpeg"]};
 
 function initGallery(name){
   const root=document.querySelector(`.gallery[data-gallery="${name}"]`);
@@ -189,3 +189,4 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contai
 </script>
 </body>
 </html>
+
