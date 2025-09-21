@@ -4,167 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AJ’s Dual-PC Showcase</title>
-  <meta name="description" content="AJ (aka B4nsheeG4mer) — dual PC setup for streaming + gaming with clean photos, specs, and chill vibes." />
+  <meta name="description" content="Explore AJ’s (aka B4nsheeG4mer) dual-PC setup built for streaming and gaming. Showcasing a powerful Gaming PC and a dedicated Streaming PC with photos, specs, and chill vibes." />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: #0b1220; color: #e6eefc;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    .card { border-radius: 1.5rem; border: 1px solid rgba(100,116,139,.6); background: rgba(2,6,23,.6); backdrop-filter: blur(6px); }
+    .gallery img { cursor: pointer; transition: transform 0.2s; border-radius: 12px; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      display: none; position: fixed; z-index: 50; left: 0; top: 0;
+      width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+      align-items: center; justify-content: center;
     }
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px);
-      background: #0b1220cc; border-bottom: 1px solid #1e2a44; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
-    h1 { font-size: 20px; margin: 0; }
-    h2 { margin: 0 0 6px; }
-    .muted { color: #c9d7ff; opacity: .9; }
-    .row { display: grid; gap: 24px; }
-    @media (min-width: 900px) { .row2 { grid-template-columns: 1.15fr .85fr; } }
-    .card {
-      border: 1px solid #243356; background: #0f1a33aa; border-radius: 18px; padding: 20px;
-    }
-    .btn {
-      display: inline-block; padding: 8px 14px; border: 1px solid #2b3b63; border-radius: 12px;
-      color: #e6eefc; text-decoration: none; transition: transform .12s;
-    }
-    .btn:active { transform: scale(.98); }
-    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: #c9d7ff; }
-    .gallery {
-      display: grid; gap: 12px; margin-top: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-    .thumb {
-      width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
-      border-radius: 12px; border: 1px solid #243356; cursor: pointer;
-      transition: transform .12s;
-    }
-    .thumb:hover { transform: scale(1.02); }
-
-    /* Lightbox */
-    #lb { position: fixed; inset: 0; background: #000000e6; display: none;
-      align-items: center; justify-content: center; z-index: 100; }
-    #lb img { max-width: 92vw; max-height: 92vh; border-radius: 16px; }
-    .nav { position: absolute; top: 50%; transform: translateY(-50%);
-      font-size: 28px; padding: 8px 12px; border: 1px solid #ffffff55;
-      background: transparent; color: #fff; border-radius: 10px; cursor: pointer; }
-    #prev { left: 24px; } #next { right: 24px; }
-    .close { position: absolute; top: 18px; right: 18px; font-size: 28px;
-      border: 1px solid #ffffff55; color: #fff; background: transparent;
-      border-radius: 999px; width: 40px; height: 40px; line-height: 36px; text-align: center; cursor: pointer; }
-    .pill { display:inline-block; font-size:12px; padding:4px 8px; border-radius:12px; background:#101a34; border:1px solid #2b3b63; color:#c9d7ff; }
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; }
   </style>
 </head>
-<body>
-
-  <header>
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-      <h1>AJ’s Dual-PC Setup <span class="muted" style="font-weight:600;">(aka B4nsheeG4mer)</span></h1>
-      <div style="display:flex; gap:8px;">
-        <a class="btn" href="https://twitch.tv/B4nsheeG4mer" target="_blank" rel="noopener">Twitch</a>
-        <a class="btn" href="https://youtube.com/@B4nsheeG4mer" target="_blank" rel="noopener">YouTube</a>
-      </div>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-10 border-b border-slate-800/70 backdrop-blur bg-slate-950/70">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold">AJ’s Dual-PC Setup</h1>
+      <p class="text-xs text-slate-400">aka <span class="font-medium">B4nsheeG4mer</span></p>
     </div>
   </header>
 
-  <main class="wrap" style="display:grid; gap:24px; padding-block:24px;">
-    <!-- Hero / About -->
-    <section class="card row row2">
-      <div>
-        <div class="pill">Chill • Inclusive • High FPS</div>
-        <h2 style="font-size:28px; margin:10px 0 6px;">Welcome!</h2>
-        <p class="muted">
-          I’m <b>AJ</b> (aka <b>B4nsheeG4mer</b>), a 24-year-old trans creator who loves gaming, streaming, and clean builds.
-          This page showcases my <b>Gaming PC</b> and <b>Streaming PC</b> with pics + specs. Enjoy the ghostly blue/purple vibes ✨
-        </p>
-        <p class="muted" style="margin-top:8px;">Click any photo to view full-screen. Use arrows or your keyboard ← → to navigate.</p>
-      </div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <!-- Replace this hero image with one of your own later -->
-        <img class="thumb" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1400&auto=format&fit=crop" alt="Hero">
-      </div>
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+    <!-- Welcome -->
+    <section class="card p-6 md:p-10">
+      <h2 class="text-2xl font-bold mb-4">Welcome!</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Hey! I’m <strong>AJ</strong> (aka <strong>B4nsheeG4mer</strong>), a 24-year-old trans content creator who loves gaming, streaming, and tech. 
+        This is my dual-PC setup built for both <strong>performance</strong> and <strong>style</strong>. Explore the builds below!
+      </p>
     </section>
 
     <!-- Gaming PC -->
-    <section class="card">
-      <h2 style="font-size:22px; margin:0 0 8px;">🎮 Gaming PC</h2>
-      <ul>
+    <section class="card p-6 md:p-10">
+      <h2 class="text-xl font-bold mb-4">🎮 Gaming PC</h2>
+      <ul class="list-disc list-inside mb-4 text-slate-300">
         <li>CPU: Intel Core i9-12900K</li>
         <li>GPU: MSI RTX 4070 SUPER</li>
         <li>RAM: 64GB G.Skill DDR5-6000</li>
         <li>Storage: Samsung 980 Pro 2TB + others</li>
         <li>Case: NZXT H9 Elite</li>
       </ul>
-
-      <!-- Replace these with your real Gaming PC photo filenames after you upload them to the repo -->
-      <div class="gallery" id="gamingGallery">
-        <img class="thumb" src="gaming1.jpg" alt="Gaming PC 1">
-        <img class="thumb" src="gaming2.jpg" alt="Gaming PC 2">
-        <img class="thumb" src="gaming3.jpg" alt="Gaming PC 3">
+      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img src="gaming1.jpg" alt="Gaming PC 1" />
+        <img src="gaming2.jpg" alt="Gaming PC 2" />
+        <img src="gaming3.jpg" alt="Gaming PC 3" />
       </div>
     </section>
 
     <!-- Streaming PC -->
-    <section class="card">
-      <h2 style="font-size:22px; margin:0 0 8px;">📹 Streaming PC</h2>
-      <ul>
+    <section class="card p-6 md:p-10">
+      <h2 class="text-xl font-bold mb-4">📹 Streaming PC</h2>
+      <ul class="list-disc list-inside mb-4 text-slate-300">
         <li>CPU: AMD Ryzen 5 5500</li>
         <li>GPU: NVIDIA RTX 4060</li>
         <li>Motherboard: MAG B550 TOMAHAWK MAX WIFI</li>
         <li>RAM: 16GB DDR4-3000</li>
         <li>Storage: T-Force 1TB</li>
       </ul>
-
-      <!-- Replace these with your real Streaming PC photo filenames -->
-      <div class="gallery" id="streamGallery">
-        <img class="thumb" src="stream1.jpg" alt="Streaming PC 1">
-        <img class="thumb" src="stream2.jpg" alt="Streaming PC 2">
-        <img class="thumb" src="stream3.jpg" alt="Streaming PC 3">
+      <div class="gallery grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img src="stream1.jpg" alt="Streaming PC 1" />
+        <img src="stream2.jpg" alt="Streaming PC 2" />
+        <img src="stream3.jpg" alt="Streaming PC 3" />
       </div>
     </section>
   </main>
 
-  <!-- Lightbox (shared by both galleries) -->
-  <div id="lb">
-    <button class="close" id="closeBtn" aria-label="Close">×</button>
-    <button class="nav" id="prev" aria-label="Previous">◀</button>
-    <img id="lbimg" alt="Full view">
-    <button class="nav" id="next" aria-label="Next">▶</button>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox flex">
+    <img id="lightbox-img" src="" alt="Expanded view" />
   </div>
 
   <script>
-    // Collect all gallery images
-    const thumbs = Array.from(document.querySelectorAll('.thumb'));
-    const lb = document.getElementById('lb');
-    const lbimg = document.getElementById('lbimg');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
-    const closeBtn = document.getElementById('closeBtn');
-    let idx = 0;
-
-    function openAt(i) {
-      idx = i;
-      lbimg.src = thumbs[idx].src;
-      lb.style.display = 'flex';
-    }
-    function prev() {
-      idx = (idx - 1 + thumbs.length) % thumbs.length;
-      lbimg.src = thumbs[idx].src;
-    }
-    function next() {
-      idx = (idx + 1) % thumbs.length;
-      lbimg.src = thumbs[idx].src;
-    }
-    thumbs.forEach((img, i) => img.addEventListener('click', () => openAt(i)));
-    prevBtn.onclick = prev;
-    nextBtn.onclick = next;
-    closeBtn.onclick = () => lb.style.display = 'none';
-    lb.addEventListener('click', (e) => { if (e.target === lb) lb.style.display = 'none'; });
-    document.addEventListener('keydown', (e) => {
-      if (lb.style.display === 'flex') {
-        if (e.key === 'Escape') lb.style.display = 'none';
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      }
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
     });
   </script>
 </body>
